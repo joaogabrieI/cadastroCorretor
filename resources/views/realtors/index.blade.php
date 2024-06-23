@@ -18,9 +18,21 @@
             @endisset
             <form action="{{route('realtors.store')}}" method="post">
                 @csrf
+                
                 <input type="text" name="cpf" placeholder="Digite seu CPF">
+                @error('cpf')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                
                 <input type="text" name="creci" placeholder="Digite seu Creci">
+                @error('creci')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                
                 <input type="text" name="name" placeholder="Digite seu nome">
+                @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 
                 <button>Enviar</button>
             </form>
