@@ -19,19 +19,19 @@
             <form action="{{route('realtors.store')}}" method="post">
                 @csrf
 
-                <input type="text" name="cpf" placeholder="Digite seu CPF" :value="old('cpf')">
+                <input type="text" name="cpf" placeholder="Digite seu CPF" value="{{old('cpf')}}">
                 @error('cpf')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div>{{ $message }}</div>
                 @enderror
 
-                <input type="text" name="creci" placeholder="Digite seu Creci" :value="old('creci')">
+                <input type="text" name="creci" placeholder="Digite seu Creci" value="{{old('creci')}}">
                 @error('creci')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div>{{ $message }}</div>
                 @enderror
 
-                <input type="text" name="name" placeholder="Digite seu nome" :value="old('name')">
+                <input type="text" name="name" placeholder="Digite seu nome" value="{{old('name')}}">
                 @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div>{{ $message }}</div>
                 @enderror
 
                 <button>Enviar</button>
