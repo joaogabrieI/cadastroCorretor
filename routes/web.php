@@ -7,4 +7,4 @@ Route::get('/', function () {
     return to_route('realtors.index');
 });
 
-Route::resource('realtors', RealtorController::class);
+Route::resource('realtors', RealtorController::class)->except(['create', 'show']);
