@@ -19,17 +19,17 @@
             <form action="{{route('realtors.store')}}" method="post">
                 @csrf
 
-                <input type="text" name="cpf" placeholder="Digite seu CPF">
+                <input type="text" name="cpf" placeholder="Digite seu CPF" :value="old('cpf')">
                 @error('cpf')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                <input type="text" name="creci" placeholder="Digite seu Creci">
+                <input type="text" name="creci" placeholder="Digite seu Creci" :value="old('creci')">
                 @error('creci')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                <input type="text" name="name" placeholder="Digite seu nome">
+                <input type="text" name="name" placeholder="Digite seu nome" :value="old('name')">
                 @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -61,7 +61,7 @@
                             <form action="{{route('realtors.destroy', $realtor->id)}}" method="post">
                                 @csrf
                                 @method('delete')
-                                <a href="#">Editar</a>
+                                <a href="{{route('realtors.edit', $realtor->id)}}">Editar</a>
                                 <button>Excluir</button>
                             </form>
                         </td>

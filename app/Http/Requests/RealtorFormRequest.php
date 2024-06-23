@@ -22,9 +22,10 @@ class RealtorFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        $realtor = $this->route('realtor');
         return [
-            'cpf' => ['required', 'digits:11', 'numeric', 'unique:realtors,cpf'],
-            'creci' => ['required', 'min:2', 'numeric', 'unique:realtors,creci'],
+            'cpf' => ['required', 'digits:11', 'numeric', Rule::unique('realtors')->ignore($realtor)],
+            'creci' => ['required', 'min:2', 'numeric', Rule::unique('realtors')->ignore($realtor)],
             'name' => ['required', 'min:3'],
         ];
     }

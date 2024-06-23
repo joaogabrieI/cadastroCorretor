@@ -35,4 +35,19 @@ class RealtorController extends Controller
             'sucess.message' => "Corretor excluído com sucesso!"
         ]);
     }
+
+    public function edit(Realtor $realtor)
+    {
+        return view('realtors.edit')->with([
+            'realtor' => $realtor
+        ]);
+    }
+
+    public function update(Realtor $realtor, RealtorFormRequest $request)
+    {
+        $realtor->fill($request->all())->save();
+        return to_route('realtors.index')->with([
+            'sucess.message' => "Corretor alterado com sucesso!"
+        ]);
+    }
 }
