@@ -18,17 +18,17 @@
             @endisset
             <form action="{{route('realtors.store')}}" method="post">
                 @csrf
-                
+
                 <input type="text" name="cpf" placeholder="Digite seu CPF">
                 @error('cpf')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <input type="text" name="creci" placeholder="Digite seu Creci">
                 @error('creci')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-                
+
                 <input type="text" name="name" placeholder="Digite seu nome">
                 @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -36,6 +36,30 @@
 
                 <button>Enviar</button>
             </form>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Creci</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($realtors as $realtor)
+                    <tr>
+                        <td>{{$realtor->id}}</td>
+                        <td>{{$realtor->name}}</td>
+                        <td>{{$realtor->cpf}}</td>
+                        <td>{{$realtor->creci}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </section>
     </main>
 </body>

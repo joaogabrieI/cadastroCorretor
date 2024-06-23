@@ -8,10 +8,14 @@ use Illuminate\Http\Request;
 
 class RealtorController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
+        $realtors = Realtor::all();
         $sucessMessage = $request->session()->get('sucess.message');
+
         return view('realtors.index')->with([
-            'sucessMessage' => $sucessMessage
+            'sucessMessage' => $sucessMessage,
+            'realtors' => $realtors
         ]);
     }
 
