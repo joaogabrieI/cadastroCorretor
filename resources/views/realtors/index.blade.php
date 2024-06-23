@@ -38,6 +38,7 @@
             </form>
         </section>
 
+        @if ($realtors->isNotEmpty())
         <section>
             <table>
                 <thead>
@@ -61,6 +62,7 @@
                 </tbody>
             </table>
         </section>
+        @endif
     </main>
 </body>
 
