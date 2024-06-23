@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Realtor;
 use Illuminate\Http\Request;
 
 class RealtorController extends Controller
 {
-    public function index(){
-        return view('realtors.index');
+    public function index(Request $request){
+        $sucessMessage = $request->session()->get('sucess.message');
+        return view('realtors.index')->with([
+            'sucessMessage' => $sucessMessage
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        Realtor::create($request->all());
+
+        return to_route('realtors.index')->with([
+            'sucess.message' => "Corretor '{$request->name}' foi cadastrado com sucesso!"
+        ]);
     }
 }

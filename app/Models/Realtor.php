@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Realtor extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'cpf',
+        'creci'
+    ];
 }
