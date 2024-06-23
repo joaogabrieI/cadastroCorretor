@@ -26,7 +26,7 @@ class RealtorFormRequest extends FormRequest
         return [
             'cpf' => ['required', 'digits:11', 'numeric', Rule::unique('realtors')->ignore($realtor)],
             'creci' => ['required', 'min:2', 'numeric', Rule::unique('realtors')->ignore($realtor)],
-            'name' => ['required', 'min:3'],
+            'name' => ['required', 'min:2'],
         ];
     }
 
