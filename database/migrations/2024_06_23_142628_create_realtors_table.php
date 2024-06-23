@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('realtors', function (Blueprint $table) {
             $table->id();
             $table->string('name', 128);
-            $table->integer('cpf');
-            $table->integer('creci');
+            $table->string('cpf', 11);
+            $table->string('creci');
             $table->timestamps();
         });
     }
