@@ -24,7 +24,15 @@ class RealtorController extends Controller
         Realtor::create($request->all());
 
         return to_route('realtors.index')->with([
-            'sucess.message' => "Corretor '{$request->name}' foi cadastrado com sucesso!"
+            'sucess.message' => "O Corretor '{$request->name}' foi cadastrado com sucesso!"
+        ]);
+    }
+
+    public function destroy(Realtor $realtor, Request $request)
+    {
+        Realtor::destroy($realtor->id);
+        return to_route('realtors.index')->with([
+            'sucess.message' => "Corretor excluído com sucesso!"
         ]);
     }
 }

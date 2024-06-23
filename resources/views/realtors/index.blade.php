@@ -57,6 +57,14 @@
                         <td>{{$realtor->name}}</td>
                         <td>{{$realtor->cpf}}</td>
                         <td>{{$realtor->creci}}</td>
+                        <td>
+                            <form action="{{route('realtors.destroy', $realtor->id)}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <a href="#">Editar</a>
+                                <button>Excluir</button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
