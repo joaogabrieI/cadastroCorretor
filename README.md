@@ -12,4 +12,5 @@ Aplicação web para gerenciamento de corretores, onde é possível fazer a admi
 No terminal 
 
 > composer install
+
 > php artisan migrate
